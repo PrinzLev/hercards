@@ -64,9 +64,7 @@ export default async function About() {
                 </p>
             </div>
             <div className="py-5">
-                <p className="font-semibold text-sm">
-                    © 2023 Jericho Irvin Alde
-                </p>
+                <p className="font-semibold text-sm">© 2023 Jericho Irvin</p>
             </div>
         </div>
     )
