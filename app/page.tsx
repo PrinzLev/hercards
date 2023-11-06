@@ -6,8 +6,8 @@ import About from "./components/about"
 import { client } from "./plugins/sanity/client"
 import { ICategory } from "./store/category"
 
-export const getCategoriy = async () => {
-    const categories = await client.fetch(
+const getCategory = async () => {
+    const categories: ICategory[] = await client.fetch(
         '*[_type == "category"]',
         {},
         { cache: "no-cache" }
@@ -17,7 +17,7 @@ export const getCategoriy = async () => {
 }
 
 export default async function Home() {
-    const categories = await getCategoriy()
+    const categories = await getCategory()
     return (
         <main>
             <div
