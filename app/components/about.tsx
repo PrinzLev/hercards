@@ -32,16 +32,16 @@ export default async function About() {
                         </a>
                     </span>
                     . The basic premise of the game is being able to think like
-                    the majority. A question will come up like &quot;What's the
-                    best source of protein?&quot;, you would then need to come
-                    up with an answer that you'd think most of the players
-                    you're playing with would write down. If you're part of the
-                    majority you get a point, otherwise you get nothing. If,
-                    however, you were the only one who didn't have a similar
-                    answer with anyone else you would then get the pink cow
-                    which means you're not allowed to win the game. You would
-                    only lose the pink cow if someone else answered differently
-                    than everybody else.
+                    the majority. A question will come up like "What's the best
+                    source of protein?", you would then need to come up with an
+                    answer that you'd think most of the players you're playing
+                    with would write down. If you're part of the majority you
+                    get a point, otherwise you get nothing. If, however, you
+                    were the only one who didn't have a similar answer with
+                    anyone else you would then get the pink cow which means
+                    you're not allowed to win the game. You would only lose the
+                    pink cow if someone else answered differently than everybody
+                    else.
                 </p>
                 <p className="mt-5">
                     The game has been a treat to play. I've played this with 2
