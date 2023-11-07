@@ -3,21 +3,10 @@ import CategoryDropdown from "./components/category-dropdown"
 import GenerateQButton from "./components/generate-q-button"
 import About from "./components/about"
 
-import { client } from "./plugins/sanity/client"
-import { ICategory } from "./store/category"
-
-const getCategory = async () => {
-    const categories: ICategory[] = await client.fetch(
-        '*[_type == "category"]',
-        {},
-        { cache: "no-cache" }
-    )
-
-    return [{ name: "All", _id: "all" }, ...categories]
-}
+import { getCategories } from "./plugins/sanity/queries"
 
 export default async function Home() {
-    const categories = await getCategory()
+    const categories = [{ name: "All", _id: "all" }, ...(await getCategories())]
     return (
         <main>
             <div
