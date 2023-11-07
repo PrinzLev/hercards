@@ -1,15 +1,6 @@
-import { client } from "../plugins/sanity/client"
 import { IconCards } from "@tabler/icons-react"
 
-const getQuestionCount = async () => {
-    const count: number = await client.fetch(
-        `count(*[_type == 'question'])`,
-        {},
-        { cache: "no-cache" }
-    )
-
-    return count
-}
+import { getQuestionCount } from "../plugins/sanity/queries"
 
 export default async function About() {
     const questionCount = await getQuestionCount()

@@ -3,11 +3,12 @@
 import { IconRefresh, IconLoader2 } from "@tabler/icons-react"
 
 import { useState } from "react"
-import { client } from "../plugins/sanity/client"
 import { useAtom } from "jotai"
 import { categorySelected } from "../store/category"
 import { questionGenerated, IQuestion } from "../store/question"
 import { isNoCategorySelected } from "../store/shared"
+
+import { getQuestionCount, getQuestion } from "../plugins/sanity/queries"
 
 export default function GenerateQButton() {
     const [isLoading, setIsLoading] = useState(false)
@@ -15,15 +16,8 @@ export default function GenerateQButton() {
     const [, setQuestionGenerated] = useAtom(questionGenerated)
     const [, setIsNoCategory] = useAtom(isNoCategorySelected)
 
-    const query = `*[_type == 'question'${
-        category._id !== "all"
-            ? ` && '${category._id}' in categories[]._ref`
-            : ""
-    }]`
-
     const getRandomIndex = async () => {
-        console.log(query)
-        const count: number = await client.fetch(`count(${query})`)
+        const count: number = await getQuestionCount(category)
 
         const index = Math.floor(Math.random() * count)
         return index
@@ -36,10 +30,7 @@ export default function GenerateQButton() {
         }
         setIsLoading(true)
         const randomIndex = await getRandomIndex()
-        const question: IQuestion = await client.fetch(
-            `${query}[$questionIndex]`,
-            { questionIndex: randomIndex }
-        )
+        const question: IQuestion = await getQuestion(category, randomIndex)
 
         setQuestionGenerated(question)
         setIsLoading(false)

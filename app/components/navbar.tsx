@@ -4,7 +4,7 @@ import Logo from "@/public/images/logo.png"
 
 export default function Navbar() {
     return (
-        <div className="fixed top-0 flex justify-between items-center bg-[#D9D9D9]/[20%] w-full px-5 py-5 z-20">
+        <div className="fixed top-0 flex justify-between items-center bg-transparent w-full px-5 py-5 z-20">
             <div>
                 <Link
                     href="#cards"
